@@ -2,6 +2,11 @@ package model;
 import java.time.*;
 import java.time.LocalDateTime;
 
+
+
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,6 +17,8 @@ import lombok.NoArgsConstructor;
 
 public class Vuelo {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
 	private String origen;
@@ -114,6 +121,18 @@ public class Vuelo {
 		this.frecuencia = frecuencia;
 	}
 
+	public Vuelo(String origen, String destino, LocalDateTime fechaHoraSalida, LocalDateTime fechaHoraLlegada,
+			double precio, String frecuencia) {
+		
+		this.origen = origen;
+		this.destino = destino;
+		this.fechaHoraSalida = fechaHoraSalida;
+		this.fechaHoraLlegada = fechaHoraLlegada;
+		this.precio = precio;
+		this.frecuencia = frecuencia;
+	}
+
+	
 
 	
 	

@@ -5,8 +5,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import Services.VueloService;
@@ -35,25 +38,24 @@ public class VueloController {
 	}
 	
 	
-	@PostMapping
-	public void createVuelo() {
+	@PostMapping("/agregar")
+	public void createVuelo(@RequestBody Vuelo vuelo) {
 		
-		vueloService.crearVuelo();
+		vueloService.crearVuelo(vuelo);
 	}
 	
-	@GetMapping
-	public void findVueloPorId() {
+	@GetMapping("/[id]")
+	public Vuelo findVueloPorId(@PathVariable Long id) {
 		
-		Long id = 1L;
-		Vuelo vueloEncontrado = vueloService.findVueloPorId(id);
-		return vueloEncontrado;
+		return vueloService.findVueloPorId(id);
+		
 	}
 	
 	
 	@DeleteMapping()
-	public void deleteVuelo() {
+	public void deleteVuelo(@PathVariable Long id) {
 		
-		long id = 1L;
+	
 		
 		vueloService.deleteVueloPorId(id);
 		
