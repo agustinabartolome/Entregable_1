@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 
-
+//Ejemplo 1 de práctica: Entregable 1
 
 public class VuelosApiApplication {
 

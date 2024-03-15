@@ -17,14 +17,6 @@ public class VueloService {
 	
 	@Autowired
 	VueloRepository vueloRepository;
-	
-	
-	
-	public Vuelo getVuelo(){
-		
-		
-		return null;
-	}
 
 	
 	
@@ -33,7 +25,7 @@ public class VueloService {
 	public List<Vuelo> getAllVuelos() {
 		// TODO Auto-generated method stub
 		
-		return null;
+		return vueloRepository.findAll();
 	}
 	
 	
@@ -55,6 +47,17 @@ public class VueloService {
 		
 		vueloRepository.deleteById(Id);
 	
+	}
+
+
+
+
+
+	public Vuelo actualizarVuelo(Vuelo vuelo) {
+		// TODO Auto-generated method stub
+	
+		vueloRepository.save(vuelo);
+		return vueloRepository.findById(vuelo.getId()).orElse(null);
 	}
 
 
