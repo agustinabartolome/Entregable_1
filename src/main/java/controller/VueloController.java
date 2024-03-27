@@ -40,15 +40,15 @@ public class VueloController {
 		vueloService.crearVuelo(vuelo);
 	}
 	
-	@GetMapping("/[id]")
-	public Vuelo findVueloPorId(@PathVariable Long id) {
+	@GetMapping("/{id}")
+	public  Vuelo findVueloPorId(@PathVariable Long id) {
 		
 		return vueloService.findVueloPorId(id);
 		
 	}
 	
 	
-	@DeleteMapping()
+	@DeleteMapping("/eleiminar/{id}")
 	public void deleteVuelo(@PathVariable Long id) {
 		
 	

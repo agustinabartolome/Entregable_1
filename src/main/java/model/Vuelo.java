@@ -2,8 +2,7 @@ package model;
 import java.time.*;
 import java.time.LocalDateTime;
 
-
-
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -14,6 +13,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
+@Entity
 
 public class Vuelo {
 
@@ -121,21 +121,7 @@ public class Vuelo {
 		this.frecuencia = frecuencia;
 	}
 
-	public Vuelo(String origen, String destino, LocalDateTime fechaHoraSalida, LocalDateTime fechaHoraLlegada,
-			double precio, String frecuencia) {
-		
-		this.origen = origen;
-		this.destino = destino;
-		this.fechaHoraSalida = fechaHoraSalida;
-		this.fechaHoraLlegada = fechaHoraLlegada;
-		this.precio = precio;
-		this.frecuencia = frecuencia;
-	}
 
-	
-
-	
-	
 	
 	
 	
