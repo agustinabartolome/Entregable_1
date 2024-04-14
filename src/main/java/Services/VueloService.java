@@ -10,17 +10,20 @@ import org.springframework.stereotype.Service;
 
 import model.Vuelo;
 import repository.VueloRepository;
+import utils.VueloUtils;
 import controller.VueloController;
 
 @Service
 
 public class VueloService {
 	
+	
 	@Autowired
 	VueloRepository vueloRepository;
 
 	
-	
+	@Autowired
+	VueloUtils vueloUtils;
 
 	
 	public List<Vuelo> getAllVuelos() {
@@ -88,7 +91,8 @@ public class VueloService {
 		return vueloRepository.findByOrigenAndDestino(origen, destino);
 	}
 
-
+	/* Para que el código no sea repetitivo, trasladamos esta selección hacia el paquete utils. 
+	 * Desde allí podrá utilizarse en todo el proyecto. 
 
 	public List<Vuelo> getOfertas(Integer preciosOfertas){
 		
@@ -108,6 +112,22 @@ public class VueloService {
 		return ofertasVuelos;
 	}
 	
+	*/
+	
+	
+	public List<Vuelo> getOfertas(Integer preciosOfertas){
+		
+		List<Vuelo> vuelos = vueloRepository.findAll();
+		
+		return vueloUtils.detectedOfertas(vuelos, preciosOfertas);
+		
+	}
+
+	
+	
+	
+	
+	
 	
 		
 		
@@ -122,4 +142,4 @@ public class VueloService {
 	
 	
 
-}
+
