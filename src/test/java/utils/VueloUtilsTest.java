@@ -29,7 +29,7 @@ class VueloUtilsTest {
 		
 		//Completar
 		
-		//Vuelo vuelo1 = new vuelo(1L, " ", " ", " ", " ", 400.00, " ");
+		//Vuelo vuelo1 = new vuelo(1L, "Iguazu", "Cordoba", "18:00", "22:00 ", 400.00, "Mensual");
 	}
 
 }

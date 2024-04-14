@@ -39,7 +39,7 @@ class VueloRepositoryTest {
 	@BeforeEach
 	void setUp() {
 		
-		vuelo = new Vuelo("", "", "", "", 400.50, "");
+		vuelo = new Vuelo("Jujuy", "Salta", "23:00", "02:00", 400.50, "Semanal");
 	}
 	
 	@Test
@@ -106,7 +106,7 @@ class VueloRepositoryTest {
 		//Pasos
 			//1)Configuración previa 
 
-		Vuelo vuelo2 = new Vuelo("", "", "", "", 500.50, "");
+		Vuelo vuelo2 = new Vuelo("Asuncion", "Iguazu", "15:00", "18:00", 500.50, "Diaria");
 		
 		vueloRepository.save(vuelo);
 		
@@ -209,8 +209,8 @@ class VueloRepositoryTest {
 		
 		Vuelo vueloBD = vueloRepository.findById(vuelo.getId()).get();
 		
-		vueloBD.setOrigen("");
-		vueloBD.setDestino("");
+		vueloBD.setOrigen("Asuncion");
+		vueloBD.setDestino("Iguazu");
 		
 		vuelo vueloUpdated = vueloRepository.save(vueloBD);
 		
