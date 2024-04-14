@@ -1,6 +1,5 @@
 package model;
-import java.time.*;
-import java.time.LocalDateTime;
+
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -25,22 +24,23 @@ public class Vuelo {
 	
 	private String destino;
 	
-	private LocalDateTime fechaHoraSalida;
+	private String fechaHoraSalida;
 	
-	private LocalDateTime fechaHoraLlegada;
+	private String fechaHoraLlegada;
 	
 	private double precio;
 	
 	private String frecuencia;
 	
 	
+	private Integer preciosOfertas;
 	
 	public Vuelo() {
 		
 	}
 
-	public Vuelo(long id,  String origen, String destino, LocalDateTime fechaHoraSalida, 
-			LocalDateTime fechaHoraLlegada, double precio, String frecuencia) {
+	public Vuelo(long id,  String origen, String destino, String fechaHoraSalida, 
+			String fechaHoraLlegada, double precio, String frecuencia) {
 		
 		this.id = id;
 		this.origen = origen;
@@ -82,22 +82,22 @@ public class Vuelo {
 	}
 
 
-	public LocalDateTime getFechaHoraSalida() {
+	public String getFechaHoraSalida() {
 		return fechaHoraSalida;
 	}
 
 
-	public void setFechaHoraSalida(LocalDateTime fechaHoraSalida) {
+	public void setFechaHoraSalida(String fechaHoraSalida) {
 		this.fechaHoraSalida = fechaHoraSalida;
 	}
 
 
-	public LocalDateTime getFechaHoraLlegada() {
+	public String getFechaHoraLlegada() {
 		return fechaHoraLlegada;
 	}
 
 
-	public void setFechaHoraLlegada(LocalDateTime fechaHoraLlegada) {
+	public void setFechaHoraLlegada(String fechaHoraLlegada) {
 		this.fechaHoraLlegada = fechaHoraLlegada;
 	}
 
@@ -119,6 +119,21 @@ public class Vuelo {
 
 	public void setFrecuencia(String frecuencia) {
 		this.frecuencia = frecuencia;
+	}
+
+	@Override
+	public String toString() {
+		return "Vuelo [id=" + id + ", origen=" + origen + ", destino=" + destino + ", fechaHoraSalida="
+				+ fechaHoraSalida + ", fechaHoraLlegada=" + fechaHoraLlegada + ", precio=" + precio + ", frecuencia="
+				+ frecuencia + "]";
+	}
+
+	public Integer getPreciosOfertas() {
+		return preciosOfertas;
+	}
+
+	public void setPreciosOfertas(Integer preciosOfertas) {
+		this.preciosOfertas = preciosOfertas;
 	}
 
 

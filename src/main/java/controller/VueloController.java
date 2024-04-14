@@ -1,6 +1,7 @@
 package controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -40,30 +41,58 @@ public class VueloController {
 		vueloService.crearVuelo(vuelo);
 	}
 	
+	/*
 	@GetMapping("/{id}")
-	public  Vuelo findVueloPorId(@PathVariable Long id) {
+	public  Vuelo findVueloById(@PathVariable Long id) {
 		
-		return vueloService.findVueloPorId(id);
+		return vueloService.findVueloById(id);
 		
 	}
+	*/
 	
+	@GetMapping("/{id}")
+	public  Optional <Vuelo> findVueloById(@PathVariable Long id) {
+		
+		return vueloService.findById(id);
+		
+	}
 	
 	@DeleteMapping("/eleiminar/{id}")
 	public void deleteVuelo(@PathVariable Long id) {
 		
 	
 		
-		vueloService.deleteVueloPorId(id);
+		vueloService.deleteVueloById(id);
 		
 		
 	}
 	
-	@PutMapping("/actualizar")
+	/* En esta opción en si no utilizamos Optional
+	@PutMapping("/actualizar") 
 	public Vuelo updateVuelo (@RequestBody Vuelo vuelo) {
 	
 		return vueloService.actualizarVuelo(vuelo);
 	
 	}
+	*/
+	
+	@PutMapping("/actualizar") 
+	public Optional <Vuelo> updateVuelo (@RequestBody Vuelo vuelo) {
+		
+		return vueloService.actualizarVuelo(vuelo);
+		}
 	
 	
+	@GetMapping ("localizacion-origen")
+	public List<Vuelo> getVueloByLocalizaciones (@RequestParam String origen) {
+		
+		return vueloService.getVueloByOrigen (origen);
+	}
+	
+	
+	@GetMapping ("ambaslocalizaciones")
+	public List<Vuelo> getVueloByAmbasLocalizaciones (@RequestParam String origen, @RequestParam String destino) {
+		
+		return vueloService.getVueloByOrigenAndDestino (origen, destino);
+	}
 }
