@@ -22,6 +22,7 @@ public class Company {
 	
 	
 
+	/*
 	public Company () {
 		
 	}
@@ -73,4 +74,14 @@ public class Company {
 	public void setAdmitenMascotas(String admitenMascotas) {
 		this.admitenMascotas = admitenMascotas;
 	}
+
+
+
+	@Override
+	public String toString() {
+		return "Company [idCompany=" + idCompany + ", nombre=" + nombre + ", banner=" + banner + ", admitenMascotas="
+				+ admitenMascotas + "]";
+	}
+	*/
+	
 }
