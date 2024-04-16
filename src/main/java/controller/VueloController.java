@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import Services.VueloService;
+import model.Dolar;
 import model.Vuelo;
 
 
@@ -95,4 +96,18 @@ public class VueloController {
 		
 		return vueloService.getVueloByOrigenAndDestino (origen, destino);
 	}
+
+	/*
+	@GetMapping("dolar-precio")
+	public Dolar getDolar() {
+		return vueloService.getDolarPrecio();
+	}
+	*/
+	
+	@GetMapping("/precio-dolar")
+	public double getDolar() {
+		return vueloService.getDolarPrecio();
+	}
+
+
 }

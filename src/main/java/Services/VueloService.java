@@ -8,6 +8,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import configuration.VueloConfiguration;
+import model.Dolar;
 import model.Vuelo;
 import repository.VueloRepository;
 import utils.VueloUtils;
@@ -24,6 +26,9 @@ public class VueloService {
 	
 	@Autowired
 	VueloUtils vueloUtils;
+	
+	@Autowired
+	VueloConfiguration vueloConfiguration;
 
 	
 	public List<Vuelo> getAllVuelos() {
@@ -123,7 +128,19 @@ public class VueloService {
 		
 	}
 
+
+	/*
+	public Dolar getDolar() {
+		// TODO Auto-generated method stub
+		return vueloConfiguration.fetchDolar();
+	}
+
+	*/
 	
+	public double getDolarPrecio() {
+		// TODO Auto-generated method stub
+		return vueloConfiguration.fetchDolar().getPromedio();
+	}
 	
 	
 	

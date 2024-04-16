@@ -212,10 +212,10 @@ class VueloRepositoryTest {
 		vueloBD.setOrigen("Asuncion");
 		vueloBD.setDestino("Iguazu");
 		
-		vuelo vueloUpdated = vueloRepository.save(vueloBD);
+		Vuelo vueloUpdated = vueloRepository.save(vueloBD);
 		
-		assertThat(vueloUpdated.getOrigen().isEqualTo("");
-		assertThat(vueloUpdated.getDestino().isEqualTo("");
+		assertThat(vueloUpdated.getOrigen()).isEqualTo("Asuncion");
+		assertThat(vueloUpdated.getDestino()).isEqualTo("Iguazu");
 		
 		
 		
