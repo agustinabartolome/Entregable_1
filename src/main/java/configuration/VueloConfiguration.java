@@ -9,7 +9,7 @@ import model.Dolar;
 @Configuration
 
 public class VueloConfiguration {
-
+/*
 	@Bean
 	
 	public RestTemplate restTemplate() {
@@ -27,7 +27,7 @@ public class VueloConfiguration {
 		return restTemplate.getForObject(apiUrl, Dolar.class);
 	}
 	
-	
+*/
 	
 	
 }

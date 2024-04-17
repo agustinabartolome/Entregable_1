@@ -4,13 +4,17 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
+import model.Company;
+import model.VueloDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import configuration.VueloConfiguration;
 import model.Dolar;
 import model.Vuelo;
+import repository.CompanyRepository;
 import repository.VueloRepository;
 import utils.VueloUtils;
 import controller.VueloController;
@@ -28,16 +32,22 @@ public class VueloService {
 	VueloUtils vueloUtils;
 	
 	@Autowired
-	VueloConfiguration vueloConfiguration;
+	CompanyRepository companyRepository;
 
-	
+	/*
 	public List<Vuelo> getAllVuelos() {
-		// TODO Auto-generated method stub
 		
 		return vueloRepository.findAll();
 	}
-	
-	
+	*/
+
+	public List<VueloDto> getAllVuelos() {
+
+	double precio = getDolarPrecio();
+	List <Vuelo> vuelos = vueloRepository.findAll();
+
+		return vueloUtils.vueloMapper(vuelos, precio);
+	}
 	
 	public void crearVuelo(Vuelo vuelo) {
 		vueloRepository.save(vuelo);
@@ -46,7 +56,6 @@ public class VueloService {
 	/* Esta es una de las opciones de uso, utilizando .orElse(null) o se aplica directamente optional.
 	
 	public Vuelo findVueloById(Long Id) {
-		// TODO Auto-generated method stub
 		
 		return vueloRepository.findById(Id).orElse(null);
 	}
@@ -60,7 +69,6 @@ public class VueloService {
 	
 	
 	public void deleteVueloById(Long Id) {
-		// TODO Auto-generated method stub
 		
 		vueloRepository.deleteById(Id);
 	
@@ -69,7 +77,6 @@ public class VueloService {
 	/* Esta es una de las opciones de uso, utilizando .orElse(null) o se aplica directamente optional.
 
 	public Vuelo actualizarVuelo(Vuelo vuelo) {
-		// TODO Auto-generated method stub
 	
 		vueloRepository.save(vuelo);
 		return vueloRepository.findById(vuelo.getId()).orElse(null);
@@ -131,24 +138,27 @@ public class VueloService {
 
 	/*
 	public Dolar getDolar() {
-		// TODO Auto-generated method stub
+
 		return vueloConfiguration.fetchDolar();
 	}
 
 	*/
 	
 	public double getDolarPrecio() {
-		// TODO Auto-generated method stub
-		return vueloConfiguration.fetchDolar().getPromedio();
+
+		Dolar dolar = vueloUtils.fetchDolar();
+		return dolar.getPromedio();
 	}
-	
-	
-	
-	
-	
-		
-		
+
+
+	public Optional<Vuelo> crearVueloConCompania(Long idCompany, Vuelo vuelo) {
+		return companyRepository.findByIdCompanyAndId(idCompany, vuelo);
+
 	}
+
+
+}
+
 
 	
 

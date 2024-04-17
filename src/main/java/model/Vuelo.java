@@ -1,17 +1,16 @@
 package model;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-//@AllArgsConstructor
-//@NoArgsConstructor
+@AllArgsConstructor
+@NoArgsConstructor
 @Data
+@Builder
 @Entity
 
 public class Vuelo {
@@ -31,17 +30,102 @@ public class Vuelo {
 	private double precio;
 	
 	private String frecuencia;
-	
-	
-	private Integer preciosOfertas;
-	
-	public Vuelo() {
-		
+
+	@ManyToOne
+	@JoinColumn (name = "id_company")
+
+	private Company company;
+
+
+	public Vuelo( String origen, String destino, String fechaHoraSalida,
+				  String fechaHoraLlegada, double precio, String frecuencia) {
+
+		this.origen = origen;
+		this.destino = destino;
+		this.fechaHoraSalida = fechaHoraSalida;
+		this.fechaHoraLlegada = fechaHoraLlegada;
+		this.precio = precio;
+		this.frecuencia = frecuencia;
+
 	}
 
-	public Vuelo(long id,  String origen, String destino, String fechaHoraSalida, 
+	public long getId() {
+		return id;
+	}
+
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+
+	public String getOrigen() {
+		return origen;
+	}
+
+
+	public void setOrigen(String origen) {
+		this.origen = origen;
+	}
+
+
+	public String getDestino() {
+		return destino;
+	}
+
+
+	public void setDestino(String destino) {
+		this.destino = destino;
+	}
+
+
+	public String getFechaHoraSalida() {
+		return fechaHoraSalida;
+	}
+
+
+	public void setFechaHoraSalida(String fechaHoraSalida) {
+		this.fechaHoraSalida = fechaHoraSalida;
+	}
+
+
+	public String getFechaHoraLlegada() {
+		return fechaHoraLlegada;
+	}
+
+
+	public void setFechaHoraLlegada(String fechaHoraLlegada) {
+		this.fechaHoraLlegada = fechaHoraLlegada;
+	}
+
+
+	public double getPrecio() {
+		return precio;
+	}
+
+
+	public void setPrecio(double precio) {
+		this.precio = precio;
+	}
+
+
+	public String getFrecuencia() {
+		return frecuencia;
+	}
+
+
+	public void setFrecuencia(String frecuencia) {
+		this.frecuencia = frecuencia;
+	}
+
+	/*
+	public Vuelo() {
+
+	}
+
+	public Vuelo(long id,  String origen, String destino, String fechaHoraSalida,
 			String fechaHoraLlegada, double precio, String frecuencia) {
-		
+
 		this.id = id;
 		this.origen = origen;
 		this.destino = destino;
@@ -49,20 +133,9 @@ public class Vuelo {
 		this.fechaHoraLlegada = fechaHoraLlegada;
 		this.precio = precio;
 		this.frecuencia = frecuencia;
-				
+
 	}
-	
-	public Vuelo( String origen, String destino, String fechaHoraSalida, 
-			String fechaHoraLlegada, double precio, String frecuencia) {
-		
-		this.origen = origen;
-		this.destino = destino;
-		this.fechaHoraSalida = fechaHoraSalida;
-		this.fechaHoraLlegada = fechaHoraLlegada;
-		this.precio = precio;
-		this.frecuencia = frecuencia;
-				
-	}
+
 
 	public long getId() {
 		return id;
@@ -140,6 +213,7 @@ public class Vuelo {
 				+ frecuencia + "]";
 	}
 
+	/*
 	public Integer getPreciosOfertas() {
 		return preciosOfertas;
 	}
@@ -148,7 +222,7 @@ public class Vuelo {
 		this.preciosOfertas = preciosOfertas;
 	}
 
-	
+	*/
 	
 	
 	

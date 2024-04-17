@@ -2,9 +2,13 @@ package model;
 
 import java.time.LocalDate;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 
 public class Dolar {
 	
@@ -18,7 +22,7 @@ public class Dolar {
 	
 	private double venta;
 	
-	private LocalDate fechaDeActualizacion;
+	private LocalDate fechaActualizacion;
 	
 	
 
@@ -37,13 +41,36 @@ public class Dolar {
 	public void setVenta(double venta) {
 		this.venta = venta;
 	}
-	
+
+
+
 	public double getPromedio() {
 		
 		return ((getCompra() + getVenta())/2);
 	}
-	
-	
-	
-	
+
+
+	public String getMoneda() {
+		return moneda;
+	}
+
+	public void setMoneda(String moneda) {
+		this.moneda = moneda;
+	}
+
+	public String getCasa() {
+		return casa;
+	}
+
+	public void setCasa(String casa) {
+		this.casa = casa;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
 }

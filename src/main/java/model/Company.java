@@ -1,6 +1,9 @@
 package model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,7 +14,11 @@ import lombok.NoArgsConstructor;
 @Entity
 
 public class Company {
-	
+
+    public Long getIdCompany;
+    @Id
+
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long idCompany;
 	
 	private String nombre;
@@ -19,8 +26,14 @@ public class Company {
 	private String banner;
 	
 	private String admitenMascotas;
-	
-	
+
+
+	public 	Company(String nombre, String banner, String admitenMascotas){
+
+		this.nombre = nombre;
+		this.banner = banner;
+		this.admitenMascotas =admitenMascotas;
+	}
 
 	/*
 	public Company () {

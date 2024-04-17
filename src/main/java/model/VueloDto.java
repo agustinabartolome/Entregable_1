@@ -1,8 +1,11 @@
 package model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
+
 @Data
+@AllArgsConstructor
 
 public class VueloDto {
 
@@ -15,11 +18,26 @@ public class VueloDto {
 	private String fechaHoraDeSalida;
 	
 	private String fechaHoraLlegada;
-	
-	private double converterPrecio;
+
+	private double convertedPrecio;
 	
 	private String frecuencia;
-	
-	
-	
+
+	private Company company;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public double getConvertedPrecio() {
+		return convertedPrecio;
+	}
+
+	public void setConvertedPrecio(double convertedPrecio) {
+		this.convertedPrecio = convertedPrecio;
+	}
 }

@@ -131,7 +131,7 @@ class VueloRepositoryTest {
 		//Pasos
 			//1)Configuración previa 
 
-		Vuelo vuelo2 = new Vuelo("", "", "", "", 500.50, "");
+		Vuelo vuelo2 = new Vuelo("Jujuy", "Formosa", "16:00", "19:30", 500.50, "Semanal");
 		
 		vueloRepository.save(vuelo);
 		
@@ -159,7 +159,7 @@ class VueloRepositoryTest {
 		//Pasos
 			//1)Configuración previa 
 
-		Vuelo vuelo2 = new Vuelo("", "", "", "", 500.50, "");
+		Vuelo vuelo2 = new Vuelo("Buenos Aires", "Santiago de Chile", "10:00", "13:00", 500.50, "");
 		
 		vueloRepository.save(vuelo);
 		

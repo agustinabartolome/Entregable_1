@@ -4,13 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import Services.CompanyService;
 import model.Company;
@@ -25,9 +19,16 @@ public class CompanyController {
 	CompanyService companyService;
 	
 	@GetMapping(" ")
-	public List<Company> allCompany() {
+	public List<Company> allCompanies() {
 		
-		return companyService.getAllCompany();
+		return companyService.getAllCompanies();
+	}
+
+	@GetMapping("/{id}")
+	public  Optional <Company> findCompanyByCompanyId(@PathVariable Long idCompany) {
+
+		return companyService.findByCompanyId(idCompany);
+
 	}
 	
 	@GetMapping("/mascotas")
@@ -41,22 +42,17 @@ public class CompanyController {
 		
 		companyService.createCompany(company);
 	}
-	
-	
-	@GetMapping("/{id}")
-	public  Optional <Company> findCompanyByCompanyId(@PathVariable Long idCompany) {
-		
-		return companyService.findByCompanyId(idCompany);
-		
-	}
+
 	
 	@DeleteMapping("/eleiminar/{id}")
 	public void deleteCompany(@PathVariable Long idCompany) {
+
+		companyService.deleteByCompanyId(idCompany);
 		
-	
-		
-		companyService.deleteVueloByCompanyId(idCompany);
-		
-		
+	}
+
+	@PutMapping("/actualizar")
+	public Optional<Company> updateCompany(@RequestBody Company company){
+		return companyService.updateCompany(company);
 	}
 }
