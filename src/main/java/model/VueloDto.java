@@ -40,4 +40,15 @@ public class VueloDto {
 	public void setConvertedPrecio(double convertedPrecio) {
 		this.convertedPrecio = convertedPrecio;
 	}
+
+	public VueloDto(Long id, String origen, String destino, String fechaHoraDeSalida, String fechaHoraLlegada, double convertedPrecio, String frecuencia) {
+		this.id = id;
+		this.origen = origen;
+		this.destino = destino;
+		this.fechaHoraDeSalida = fechaHoraDeSalida;
+		this.fechaHoraLlegada = fechaHoraLlegada;
+		this.convertedPrecio = convertedPrecio;
+		this.frecuencia = frecuencia;
+	}
+
 }

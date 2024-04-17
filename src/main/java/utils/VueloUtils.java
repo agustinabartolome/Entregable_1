@@ -35,14 +35,14 @@ public List<Vuelo> detectedOfertas( List <Vuelo> vuelos,double preciosOfertas){
 	List <VueloDto> vueloDto = new ArrayList<>();
 	for ( Vuelo vuelo:vuelos){
 	vueloDto.add(new VueloDto(
-			/*vuelo.getId(),
+			vuelo.getId(),
 			vuelo.getOrigen(),
 			vuelo.getDestino(),
 			vuelo.getFechaHoraSalida(),
 			vuelo.getFechaHoraLlegada(),
 			vuelo.getPrecio() * precio,
 
-			vuelo.getFrecuencia()*/	));
+			vuelo.getFrecuencia()));
 	}
 return vueloDto;
 	}
