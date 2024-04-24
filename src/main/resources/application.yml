@@ -1,0 +1,27 @@
+#.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+
+#spring.datasource.url=jdbc:mysql://localhost:3306/airlines
+
+#spring.datasource.username=root
+
+#spring.datasource.password=root
+
+#spring.jpa.show-sql= true
+
+#spring.jpa.hibernate.ddl-auto=update
+
+#spring.jpa.open-in-view=false
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/airlines
+    username: root
+    password: root
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
