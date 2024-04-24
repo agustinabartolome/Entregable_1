@@ -158,15 +158,3 @@ public class VueloService {
 
 
 }
-
-
-	
-
-
-
-
-	
-	
-	
-
-

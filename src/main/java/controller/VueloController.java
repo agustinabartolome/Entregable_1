@@ -86,11 +86,14 @@ public class VueloController {
 		return vueloService.getDolarPrecio();
 	}
 
+
 	@PostMapping("/agregar")
 	public void createVuelo(@RequestBody Vuelo vuelo) {
 
 		vueloService.crearVuelo(vuelo);
 	}
+
+
 
 	@PostMapping("/agregar/{idCompany}")
 	public Optional <Vuelo> createVueloSumandoCompania(@RequestParam Long idCompany, @RequestBody Vuelo vuelo) {
