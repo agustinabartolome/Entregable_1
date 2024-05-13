@@ -24,7 +24,7 @@ public class CompanyController {
 		return companyService.getAllCompanies();
 	}
 
-	@GetMapping("/{id}")
+	@GetMapping("/{idCompany}")
 	public  Optional <Company> findCompanyByCompanyId(@PathVariable Long idCompany) {
 
 		return companyService.findByCompanyId(idCompany);
@@ -44,7 +44,7 @@ public class CompanyController {
 	}
 
 	
-	@DeleteMapping("/eleiminar/{id}")
+	@DeleteMapping("/eliminar/{idCompany}")
 	public void deleteCompany(@PathVariable Long idCompany) {
 
 		companyService.deleteByCompanyId(idCompany);

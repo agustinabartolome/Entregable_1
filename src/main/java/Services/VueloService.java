@@ -152,8 +152,9 @@ public class VueloService {
 
 
 	public Optional<Vuelo> crearVueloConCompania(Long idCompany, Vuelo vuelo) {
-		return companyRepository.findByIdCompanyAndId(idCompany, vuelo);
+		//return companyRepository.findByIdCompanyAndId(idCompany, vuelo);
 
+		return vueloRepository.findByIdCompanyAndId(idCompany, vuelo);
 	}
 
 

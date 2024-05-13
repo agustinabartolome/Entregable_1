@@ -20,7 +20,8 @@ public class CompanyService {
 
 	public Optional<Company> findCompanyByAdmitenMascotas(String admitenMascotas) {
 
-		return companyRepository.findOne(admitenMascotas);
+		//return companyRepository.findOne(admitenMascotas);
+		return companyRepository.findCompanyByAdmitenMascotas(admitenMascotas);
 	}
 
 	public void createCompany(Company company) {
@@ -40,7 +41,8 @@ public class CompanyService {
 
 	public Optional<Company> updateCompany(Company company) {
 		companyRepository.save(company);
+		return companyRepository.findById(company.getIdCompany());
 
-		return companyRepository.findById(company.getIdCompany);
+
 	}
 }

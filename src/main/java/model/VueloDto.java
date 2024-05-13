@@ -15,7 +15,7 @@ public class VueloDto {
 	
 	private String destino;
 	
-	private String fechaHoraDeSalida;
+	private String fechaHoraSalida;
 	
 	private String fechaHoraLlegada;
 
@@ -41,11 +41,11 @@ public class VueloDto {
 		this.convertedPrecio = convertedPrecio;
 	}
 
-	public VueloDto(Long id, String origen, String destino, String fechaHoraDeSalida, String fechaHoraLlegada, double convertedPrecio, String frecuencia) {
+	public VueloDto(Long id, String origen, String destino, String fechaHoraSalida, String fechaHoraLlegada, double convertedPrecio, String frecuencia) {
 		this.id = id;
 		this.origen = origen;
 		this.destino = destino;
-		this.fechaHoraDeSalida = fechaHoraDeSalida;
+		this.fechaHoraSalida = fechaHoraSalida;
 		this.fechaHoraLlegada = fechaHoraLlegada;
 		this.convertedPrecio = convertedPrecio;
 		this.frecuencia = frecuencia;

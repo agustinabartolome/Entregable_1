@@ -15,7 +15,6 @@ import lombok.NoArgsConstructor;
 
 public class Company {
 
-    public Long getIdCompany;
     @Id
 
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -33,6 +32,14 @@ public class Company {
 		this.nombre = nombre;
 		this.banner = banner;
 		this.admitenMascotas =admitenMascotas;
+	}
+
+	public Long getIdCompany() {
+		return idCompany;
+	}
+
+	public void setIdCompany(Long idCompany) {
+		this.idCompany = idCompany;
 	}
 
 	/*

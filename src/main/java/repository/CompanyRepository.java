@@ -10,8 +10,10 @@ import model.Company;
 
 public interface CompanyRepository extends JpaRepository< Company, Long> {
 
-	Optional<Company> findOne(String admitenMascotas);
+	//Optional<Company> findOne(String admitenMascotas);
+
+    Optional<Company> findCompanyByAdmitenMascotas(String admitenMascotas);
 
 
-    Optional<Vuelo> findByIdCompanyAndId(Long idCompany, Vuelo vuelo);
+    //Optional<Vuelo> findByIdCompanyAndId(Long idCompany, Vuelo vuelo);
 }
