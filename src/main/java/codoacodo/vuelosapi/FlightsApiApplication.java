@@ -9,7 +9,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 @SpringBootApplication
 
 @EnableDiscoveryClient
-//Ejemplo 1 de práctica: Entregable 1
+//Entregable Final
 
 public class FlightsApiApplication {
 

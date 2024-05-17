@@ -5,10 +5,11 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
+
+import java.util.Optional;
 
 @AllArgsConstructor
-@NoArgsConstructor
+//@NoArgsConstructor
 @Data
 @Builder
 @Entity
@@ -123,112 +124,9 @@ public class Flight {
 		this.frecuencia = frecuencia;
 	}
 
-	/*
-	public Flight() {
+
+	public void setCompany(Optional<Company> company) {
 
 	}
 
-	public Flight(long id,  String origen, String destino, String fechaHoraSalida,
-			String fechaHoraLlegada, double precio, String frecuencia) {
-
-		this.id = id;
-		this.origen = origen;
-		this.destino = destino;
-		this.fechaHoraSalida = fechaHoraSalida;
-		this.fechaHoraLlegada = fechaHoraLlegada;
-		this.precio = precio;
-		this.frecuencia = frecuencia;
-
-	}
-
-
-	public long getId() {
-		return id;
-	}
-
-
-	public void setId(long id) {
-		this.id = id;
-	}
-
-
-	public String getOrigen() {
-		return origen;
-	}
-
-
-	public void setOrigen(String origen) {
-		this.origen = origen;
-	}
-
-
-	public String getDestino() {
-		return destino;
-	}
-
-
-	public void setDestino(String destino) {
-		this.destino = destino;
-	}
-
-
-	public String getFechaHoraSalida() {
-		return fechaHoraSalida;
-	}
-
-
-	public void setFechaHoraSalida(String fechaHoraSalida) {
-		this.fechaHoraSalida = fechaHoraSalida;
-	}
-
-
-	public String getFechaHoraLlegada() {
-		return fechaHoraLlegada;
-	}
-
-
-	public void setFechaHoraLlegada(String fechaHoraLlegada) {
-		this.fechaHoraLlegada = fechaHoraLlegada;
-	}
-
-
-	public double getPrecio() {
-		return precio;
-	}
-
-
-	public void setPrecio(double precio) {
-		this.precio = precio;
-	}
-
-
-	public String getFrecuencia() {
-		return frecuencia;
-	}
-
-
-	public void setFrecuencia(String frecuencia) {
-		this.frecuencia = frecuencia;
-	}
-
-	@Override
-	public String toString() {
-		return "Flight [id=" + id + ", origen=" + origen + ", destino=" + destino + ", fechaHoraSalida="
-				+ fechaHoraSalida + ", fechaHoraLlegada=" + fechaHoraLlegada + ", precio=" + precio + ", frecuencia="
-				+ frecuencia + "]";
-	}
-
-	/*
-	public Integer getPreciosOfertas() {
-		return preciosOfertas;
-	}
-
-	public void setPreciosOfertas(Integer preciosOfertas) {
-		this.preciosOfertas = preciosOfertas;
-	}
-
-	*/
-	
-	
-	
 }

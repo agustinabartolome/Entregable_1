@@ -3,11 +3,14 @@ package Services;
 import java.util.List;
 import java.util.Optional;
 
+import exceptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import model.Company;
+import org.springframework.stereotype.Service;
 import repository.CompanyRepository;
 
+@Service
 public class CompanyService {
 
 	@Autowired
@@ -34,9 +37,10 @@ public class CompanyService {
 		return companyRepository.findById(idCompany);
 	}
 
-	public void deleteByCompanyId(Long idCompany) {
-
-		companyRepository.deleteById(idCompany);
+	public void deleteByCompanyId(Long idCompany)  throws ResourceNotFoundException{
+		Company company = companyRepository.findById(idCompany).orElseThrow(() ->
+						new ResourceNotFoundException("No se encontró la compañía con identificación " + idCompany));
+		companyRepository.deleteById(company.getIdCompany());
 	}
 
 	public Optional<Company> updateCompany(Company company) {

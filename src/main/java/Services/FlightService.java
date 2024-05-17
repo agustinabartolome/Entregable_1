@@ -2,6 +2,8 @@ package Services;
 import java.util.List;
 import java.util.Optional;
 
+import exceptions.ResourceNotFoundException;
+import model.Company;
 import model.Flight;
 import model.FlightDto;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,15 +57,16 @@ public class FlightService {
 
 	*/
 	
-	public Optional <Flight> findById (Long Id) {
-		
-		return flightRepository.findById(Id);
+	public Optional<FlightDto> findVueloById (Long Id) {
+
+		return flightRepository.findVueloById(Id);
 	}
 	
 	
-	public void deleteVueloById(Long Id) {
-		
-		flightRepository.deleteById(Id);
+	public void deleteVueloById(Long id) throws ResourceNotFoundException {
+		Flight flight = flightRepository.findById(id).orElseThrow(() ->
+				new ResourceNotFoundException("No se encontró el vuelo con identificación " + id));
+		flightRepository.deleteById(flight.getId());
 	
 	}
 
@@ -142,13 +145,21 @@ public class FlightService {
 		Dolar dolar = flightUtils.fetchDolar();
 		return dolar.getPromedio();
 	}
-
+	/*
 	public Optional<Flight> crearVueloConCompania(Long idCompany, Flight flight) {
 		//return companyRepository.findByIdCompanyAndId(idCompany, flight);
 
 		return flightRepository.findByIdCompanyAndId(idCompany, flight);
 	}
+	*/
 
+	public Optional <Flight> crearVueloConCompania(Long idCompany, Flight flight) {
+
+		Optional<Company> company = companyRepository.findById(idCompany);
+
+		flight.setCompany(company);
+		return Optional.of(flightRepository.save(flight));
+	}
 
 	public FlightDto getFlightDetails(Long id) {
 		return flightRepository.getFlightDetailsById(id);
