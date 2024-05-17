@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @Entity
 
-public class Vuelo {
+public class Flight {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -37,7 +37,7 @@ public class Vuelo {
 	private Company company;
 
 
-	public Vuelo( String origen, String destino, String fechaHoraSalida,
+	public Flight(String origen, String destino, String fechaHoraSalida,
 				  String fechaHoraLlegada, double precio, String frecuencia) {
 
 		this.origen = origen;
@@ -48,6 +48,11 @@ public class Vuelo {
 		this.frecuencia = frecuencia;
 
 	}
+
+	public Flight() {
+
+	}
+
 
 	public long getId() {
 		return id;
@@ -119,11 +124,11 @@ public class Vuelo {
 	}
 
 	/*
-	public Vuelo() {
+	public Flight() {
 
 	}
 
-	public Vuelo(long id,  String origen, String destino, String fechaHoraSalida,
+	public Flight(long id,  String origen, String destino, String fechaHoraSalida,
 			String fechaHoraLlegada, double precio, String frecuencia) {
 
 		this.id = id;
@@ -208,7 +213,7 @@ public class Vuelo {
 
 	@Override
 	public String toString() {
-		return "Vuelo [id=" + id + ", origen=" + origen + ", destino=" + destino + ", fechaHoraSalida="
+		return "Flight [id=" + id + ", origen=" + origen + ", destino=" + destino + ", fechaHoraSalida="
 				+ fechaHoraSalida + ", fechaHoraLlegada=" + fechaHoraLlegada + ", precio=" + precio + ", frecuencia="
 				+ frecuencia + "]";
 	}

@@ -1,25 +1,23 @@
 package repository;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.List;
 import java.util.Optional;
 
+import model.Flight;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
-import model.Vuelo;
-
 
 @DataJpaTest
 
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 
-class VueloRepositoryTest {
+class FlightRepositoryTest {
 	
 	/*
 
@@ -31,15 +29,15 @@ class VueloRepositoryTest {
 */
 	
 	@Autowired
-	private VueloRepository vueloRepository;
+	private FlightRepository flightRepository;
 	
 	@Autowired
-	private Vuelo vuelo;
+	private Flight flight;
 	
 	@BeforeEach
 	void setUp() {
 		
-		vuelo = new Vuelo("Jujuy", "Salta", "23:00", "02:00", 400.50, "Semanal");
+		flight = new Flight("Jujuy", "Salta", "23:00", "02:00", 400.50, "Semanal");
 	}
 	
 	@Test
@@ -49,13 +47,13 @@ class VueloRepositoryTest {
 			//1)Configuración previa --> en este caso en el SetUp
 			//2)Llamar a la funcionalidad
 		
-		Vuelo vueloBD = vueloRepository.save(vuelo);
+		Flight flightBD = flightRepository.save(flight);
 		
 			//3)Verificar salidad o comportamiento
 		
-		assertThat(vueloBD).isNotNull();
+		assertThat(flightBD).isNotNull();
 		
-		assertThat(vueloBD.getId()).isGreaterThan(0);
+		assertThat(flightBD.getId()).isGreaterThan(0);
 
 	}
 	
@@ -70,7 +68,7 @@ class VueloRepositoryTest {
 			//1)Configuración previa --> en este caso en el SetUp
 			//2)Llamar a la funcionalidad
 		
-		Vuelo vueloBD = vueloRepository.save(vuelo);
+		Flight vueloBD = flightRepository.save(flight);
 		
 			//3)Verificar salidad o comportamiento
 		
@@ -88,15 +86,15 @@ class VueloRepositoryTest {
 		//Pasos
 				//1)Configuración previa 
 		
-		vueloRepository.save(vuelo);
+		flightRepository.save(flight);
 		
 				//2)Llamar a la funcionalidad
 		
-		Vuelo vueloBD = vueloRepository.findById(vuelo.getId()).get();
+		Flight flightBD = flightRepository.findById(flight.getId()).get();
 		
 			//3)Verificar salidad o comportamiento
 		
-				assertThat(vueloBD).isNotNull();
+				assertThat(flightBD).isNotNull();
 	}
 
 	
@@ -106,20 +104,20 @@ class VueloRepositoryTest {
 		//Pasos
 			//1)Configuración previa 
 
-		Vuelo vuelo2 = new Vuelo("Asuncion", "Iguazu", "15:00", "18:00", 500.50, "Diaria");
+		Flight flight2 = new Flight("Asuncion", "Iguazu", "15:00", "18:00", 500.50, "Diaria");
 		
-		vueloRepository.save(vuelo);
+		flightRepository.save(flight);
 		
-		vueloRepository.save(vuelo2);
+		flightRepository.save(flight2);
 
 			//2)Llamar a la funcionalidad
 
-		List <Vuelo> vueloList = vueloRepository.findAll();
+		List <Flight> flightList = flightRepository.findAll();
 
 			//3)Verificar salidad o comportamiento
 
-		assertThat(vueloList).isNotNull();
-		assertThat(vueloList.size()).isEqualTo(2);
+		assertThat(flightList).isNotNull();
+		assertThat(flightList.size()).isEqualTo(2);
 		
 	}
 	
@@ -131,15 +129,15 @@ class VueloRepositoryTest {
 		//Pasos
 			//1)Configuración previa 
 
-		Vuelo vuelo2 = new Vuelo("Jujuy", "Formosa", "16:00", "19:30", 500.50, "Semanal");
+		Flight vuelo2 = new Flight("Jujuy", "Formosa", "16:00", "19:30", 500.50, "Semanal");
 		
-		vueloRepository.save(vuelo);
+		flightRepository.save(flight);
 		
-		vueloRepository.save(vuelo2);
+		flightRepository.save(vuelo2);
 
 			//2)Llamar a la funcionalidad
 
-		List <Vuelo> vueloList = vueloRepository.findAll();
+		List <Flight> vueloList = flightRepository.findAll();
 
 			//3)Verificar salidad o comportamiento
 
@@ -159,15 +157,15 @@ class VueloRepositoryTest {
 		//Pasos
 			//1)Configuración previa 
 
-		Vuelo vuelo2 = new Vuelo("Buenos Aires", "Santiago de Chile", "10:00", "13:00", 500.50, "");
+		Flight vuelo2 = new Flight("Buenos Aires", "Santiago de Chile", "10:00", "13:00", 500.50, "");
 		
-		vueloRepository.save(vuelo);
+		flightRepository.save(flight);
 		
-		vueloRepository.save(vuelo2);
+		flightRepository.save(vuelo2);
 
 			//2)Llamar a la funcionalidad
 
-		List <Vuelo> vueloList = vueloRepository.findAll();
+		List <Flight> vueloList = flightRepository.findAll();
 
 			//3)Verificar salidad o comportamiento
 
@@ -186,16 +184,16 @@ class VueloRepositoryTest {
 			//1)Configuración previa 
 
 
-		vueloRepository.save(vuelo);
+		flightRepository.save(flight);
 		
 
 			//2)Llamar a la funcionalidad
 
-		vueloRepository.deleteById(vuelo.getId());
+		flightRepository.deleteById(flight.getId());
 
 			//3)Verificar salidad o comportamiento
 
-		Optional <Vuelo> deletedVuelo = vueloRepository.findById(vuelo.getId());
+		Optional <Flight> deletedVuelo = flightRepository.findById(flight.getId());
 		
 		assertThat(deletedVuelo).isEmpty();
 
@@ -205,17 +203,17 @@ class VueloRepositoryTest {
 	@Test
 	void vueloActualizarTest() {
 		
-		vueloRepository.save(vuelo);
+		flightRepository.save(flight);
 		
-		Vuelo vueloBD = vueloRepository.findById(vuelo.getId()).get();
+		Flight flightBD = flightRepository.findById(flight.getId()).get();
 		
-		vueloBD.setOrigen("Asuncion");
-		vueloBD.setDestino("Iguazu");
+		flightBD.setOrigen("Asuncion");
+		flightBD.setDestino("Iguazu");
 		
-		Vuelo vueloUpdated = vueloRepository.save(vueloBD);
+		Flight flightUpdated = flightRepository.save(flightBD);
 		
-		assertThat(vueloUpdated.getOrigen()).isEqualTo("Asuncion");
-		assertThat(vueloUpdated.getDestino()).isEqualTo("Iguazu");
+		assertThat(flightUpdated.getOrigen()).isEqualTo("Asuncion");
+		assertThat(flightUpdated.getDestino()).isEqualTo("Iguazu");
 		
 		
 		

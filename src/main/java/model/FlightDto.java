@@ -7,7 +7,7 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 
-public class VueloDto {
+public class FlightDto {
 
 	private Long id;
 	
@@ -41,7 +41,7 @@ public class VueloDto {
 		this.convertedPrecio = convertedPrecio;
 	}
 
-	public VueloDto(Long id, String origen, String destino, String fechaHoraSalida, String fechaHoraLlegada, double convertedPrecio, String frecuencia) {
+	public FlightDto(Long id, String origen, String destino, String fechaHoraSalida, String fechaHoraLlegada, double convertedPrecio, String frecuencia) {
 		this.id = id;
 		this.origen = origen;
 		this.destino = destino;

@@ -1,14 +1,10 @@
 package configuration;
 
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.client.RestTemplate;
-
-import model.Dolar;
 
 @Configuration
 
-public class VueloConfiguration {
+public class FlightConfiguration {
 /*
 	@Bean
 	

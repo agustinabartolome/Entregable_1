@@ -1,14 +1,10 @@
 package model;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import com.fasterxml.jackson.databind.Module.SetupContext;
-
-class VueloTest {
+class FlightTest {
 	
 	/*
 
@@ -18,7 +14,7 @@ class VueloTest {
 	}
 	 */
 	
-	private static Vuelo vuelo;
+	private static Flight flight;
 	
 	/*
 	
@@ -27,9 +23,9 @@ class VueloTest {
 		
 		String testedOrigen = "";
 		
-		vuelo.setOrigen(testedOrigen);
+		flight.setOrigen(testedOrigen);
 		System.out.println("Le asignamos el origen: " + testedOrigen);
-		AssertThat(vuelo.getOrigen().equals(testedOrigen));
+		AssertThat(flight.getOrigen().equals(testedOrigen));
 	}
 	*/
 	
@@ -38,30 +34,30 @@ class VueloTest {
 		
 		String testedOrigen = "";
 		
-		vuelo.setOrigen(testedOrigen);
-		vuelo.setOrigen("");
+		flight.setOrigen(testedOrigen);
+		flight.setOrigen("");
 		System.out.println("Le asignamos el origen: " + testedOrigen);
-		Assertions.assertEquals(vuelo.getOrigen(),testedOrigen);
+		Assertions.assertEquals(flight.getOrigen(),testedOrigen);
 	}
 	
-	
-	public void SetAndDestinoTest() {
+	@Test
+	public void SetAndGetDestinoTest() {
 		
 		String testedDestino = "";
 		
-		vuelo.setDestino(testedDestino);
+		flight.setDestino(testedDestino);
 		
-		Assertions.assertEquals(vuelo.getDestino(), testedDestino);
+		Assertions.assertEquals(flight.getDestino(), testedDestino);
 	}
 	
-	
+	/*
 	@BeforeAll
 	public static void setUp() {
-		System.out.println("Creacion del vuelo");
-		vuelo = new Vuelo();
+		System.out.println("Creacion del flight");
+		flight = new Flight();
 	}
 	
-	
+	*/
 	
 	
 }
