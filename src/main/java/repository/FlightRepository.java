@@ -15,9 +15,6 @@ public interface FlightRepository extends JpaRepository<Flight, Long>{
 	
 	List <Flight> findByOrigenAndDestino(String origen, String destino);
 
-	//List<Flight> findByIdCompanyAndId(Long idCompany, Long id);
-
-
 	Optional<Flight> findByIdCompanyAndId(Long idCompany, Flight flight);
 
 	FlightDto getFlightDetailsById(Long id);

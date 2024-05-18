@@ -29,12 +29,6 @@ public class FlightService {
 	@Autowired
 	CompanyRepository companyRepository;
 
-	/*
-	public List<Flight> getAllVuelos() {
-		
-		return flightRepository.findAll();
-	}
-	*/
 
 	public List<FlightDto> getAllVuelos() {
 
@@ -48,14 +42,6 @@ public class FlightService {
 		flightRepository.save(flight);
 	}
 
-	/* Esta es una de las opciones de uso, utilizando .orElse(null) o se aplica directamente optional.
-	
-	public Flight findVueloById(Long Id) {
-		
-		return flightRepository.findById(Id).orElse(null);
-	}
-
-	*/
 	
 	public Optional<FlightDto> findVueloById (Long Id) {
 
@@ -69,16 +55,6 @@ public class FlightService {
 		flightRepository.deleteById(flight.getId());
 	
 	}
-
-	/* Esta es una de las opciones de uso, utilizando .orElse(null) o se aplica directamente optional.
-
-	public Flight actualizarVuelo(Flight vuelo) {
-	
-		flightRepository.save(vuelo);
-		return flightRepository.findById(vuelo.getId()).orElse(null);
-	}
-
-	 */
 	
 	public Optional <Flight> actualizarVuelo (Flight flight) {
 		
@@ -98,30 +74,6 @@ public class FlightService {
 		
 		return flightRepository.findByOrigenAndDestino(origen, destino);
 	}
-
-	/* Para que el código no sea repetitivo, trasladamos esta selección hacia el paquete utils. 
-	 * Desde allí podrá utilizarse en todo el proyecto. 
-
-	public List<Flight> getOfertas(Integer preciosOfertas){
-		
-		List<Flight> vuelos = flightRepository.findAll();
-		
-		List <Flight> ofertasVuelos = new ArrayList<>();
-		
-		for (Flight vuelo : vuelos) {
-			
-			if (vuelo.getPrecio() < preciosOfertas) {
-				
-				ofertasVuelos.add(vuelo);
-			}
-			
-		}
-		
-		return ofertasVuelos;
-	}
-	
-	*/
-	
 	
 	public List<Flight> getOfertas(Integer preciosOfertas){
 		
@@ -132,26 +84,11 @@ public class FlightService {
 	}
 
 
-	/*
-	public Dolar getDolar() {
-
-		return vueloConfiguration.fetchDolar();
-	}
-
-	*/
-	
 	public double getDolarPrecio() {
 
 		Dolar dolar = flightUtils.fetchDolar();
 		return dolar.getPromedio();
 	}
-	/*
-	public Optional<Flight> crearVueloConCompania(Long idCompany, Flight flight) {
-		//return companyRepository.findByIdCompanyAndId(idCompany, flight);
-
-		return flightRepository.findByIdCompanyAndId(idCompany, flight);
-	}
-	*/
 
 	public Optional <Flight> crearVueloConCompania(Long idCompany, Flight flight) {
 

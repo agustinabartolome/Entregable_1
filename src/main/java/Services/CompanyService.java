@@ -23,7 +23,6 @@ public class CompanyService {
 
 	public Optional<Company> findCompanyByAdmitenMascotas(String admitenMascotas) {
 
-		//return companyRepository.findOne(admitenMascotas);
 		return companyRepository.findCompanyByAdmitenMascotas(admitenMascotas);
 	}
 
